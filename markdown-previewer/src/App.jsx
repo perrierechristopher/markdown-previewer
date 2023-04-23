@@ -10,7 +10,14 @@ export default class App extends React.Component {
 
     // Initializing local state of the component to update the markdown output accordingly
     this.state = {
-      markdown: "",
+      markdown: 
+      `# This is the title\n` + 
+      `## This is a subtitle\n` +
+      `There's also [links](https://www.freecodecamp.org)\n` + 
+      "```\n var a = 1\n function func() \n```\n" +
+      "`<div><div>`\n" +
+      `- And of course there are lists.\n- Some are bulleted.\n> Block Quotes!\n **_both!_**`+
+      `\n![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)`,
     };
   }
 
@@ -71,7 +78,7 @@ export default class App extends React.Component {
 
                 <div className="mark-input" style={inputStyle}>
                   <textarea 
-                    id = "editor"
+                    id="editor"
                     className="input"
                     style={inputStyle}
                     value={this.state.markdown}
@@ -86,7 +93,7 @@ export default class App extends React.Component {
               </div>
             </div>
 
-            <div id="preview" className="col-md-6">
+            <div className="col-md-6">
               <div className="col text-center">
                 <h4>
                   <Badge className="text-align-center" variant="secondary">
@@ -94,7 +101,7 @@ export default class App extends React.Component {
                   </Badge>
                 </h4>
               </div>
-              <div style={outputStyle}
+              <div id="preview" style={outputStyle}
                   dangerouslySetInnerHTML = {{ __html: marked(this.state.markdown)}}>
               </div>
             </div>
